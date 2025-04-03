@@ -10,3 +10,5 @@ All notable changes to `laravel-mcp-server` will be documented in this file.
 - Server-Sent Events (SSE) support for n8n integration
 - JSON-RPC message handling
 - Comprehensive documentation with integration examples
+- Unit tests for MCPService functionality
+- Feature tests partially implemented (skipped for now)

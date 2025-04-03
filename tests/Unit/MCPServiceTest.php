@@ -9,7 +9,9 @@ use WizardingCode\MCPServer\Types\MessageType;
 
 class MCPServiceTest extends TestCase
 {
-    /** @test */
+    /**
+     * @test
+     */
     public function it_can_initialize_with_supported_protocol_version()
     {
         // Arrange
@@ -27,7 +29,9 @@ class MCPServiceTest extends TestCase
         $this->assertArrayHasKey('capabilities', $result);
     }
 
-    /** @test */
+    /**
+     * @test
+     */
     public function it_falls_back_to_latest_protocol_version_when_unsupported()
     {
         // Arrange
@@ -43,7 +47,9 @@ class MCPServiceTest extends TestCase
         $this->assertEquals(MCPService::LATEST_PROTOCOL_VERSION, $result['protocolVersion']);
     }
 
-    /** @test */
+    /**
+     * @test
+     */
     public function it_can_register_and_list_tools()
     {
         // Arrange
@@ -63,7 +69,9 @@ class MCPServiceTest extends TestCase
         $this->assertEquals('Test tool description', $result['tools'][0]['description']);
     }
 
-    /** @test */
+    /**
+     * @test
+     */
     public function it_can_register_and_call_tools()
     {
         // Arrange
@@ -87,7 +95,9 @@ class MCPServiceTest extends TestCase
         $this->assertEquals('5', $result['content'][0]['text']);
     }
 
-    /** @test */
+    /**
+     * @test
+     */
     public function it_can_register_and_list_resources()
     {
         // Arrange
@@ -112,7 +122,9 @@ class MCPServiceTest extends TestCase
         $this->assertEquals('Test resource description', $result['resources'][0]['description']);
     }
 
-    /** @test */
+    /**
+     * @test
+     */
     public function it_can_process_ping_request()
     {
         // Arrange

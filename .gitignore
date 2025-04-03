@@ -5,3 +5,7 @@
 composer.lock
 .phpunit.result.cache
 .DS_Store
+/bootstrap/cache/*
+!bootstrap/cache/.gitkeep
+.env
+.env.testing
