@@ -1,0 +1,58 @@
+{
+    "name": "wizardingcode/laravel-mcp-server",
+    "description": "Laravel Model Context Protocol (MCP) server implementation",
+    "type": "library",
+    "keywords": ["laravel", "mcp", "model context protocol", "ai", "ml", "claude", "llm"],
+    "homepage": "https://github.com/wizardingcode/laravel-mcp-server",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Andrea G. Ferreira",
+            "email": "andregroferreira@gmail.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^8.4",
+        "laravel/framework": "^12.0"
+    },
+    "require-dev": {
+        "pestphp/pest": "^2.0",
+        "pestphp/pest-plugin-laravel": "^2.0",
+        "orchestra/testbench": "^8.0",
+        "laravel/pint": "^1.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "WizardingCode\\MCPServer\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "WizardingCode\\MCPServer\\Tests\\": "tests/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "WizardingCode\\MCPServer\\Providers\\MCPServiceProvider"
+            ],
+            "aliases": {
+                "MCP": "WizardingCode\\MCPServer\\Facades\\MCP"
+            }
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/pest",
+        "format": "vendor/bin/pint"
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "config": {
+        "sort-packages": true,
+        "preferred-install": "dist",
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
+        }
+    }
+}
