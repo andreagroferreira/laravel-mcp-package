@@ -2,42 +2,30 @@
 
 namespace WizardingCode\MCPServer\Tests;
 
-use Orchestra\Testbench\TestCase as Orchestra;
+use Illuminate\Foundation\Testing\TestCase as BaseTestCase;
+use Illuminate\Support\Facades\Artisan;
 use WizardingCode\MCPServer\Providers\MCPServiceProvider;
 
-abstract class TestCase extends Orchestra
+abstract class TestCase extends BaseTestCase
 {
     /**
-     * Get package providers.
+     * Creates the application.
      *
-     * @param  \Illuminate\Foundation\Application  $app
-     * @return array<int, class-string>
+     * @return \Illuminate\Foundation\Application
      */
-    protected function getPackageProviders($app)
+    public function createApplication()
     {
-        return [
-            MCPServiceProvider::class,
-        ];
-    }
+        $app = require __DIR__.'/bootstrap.php';
 
-    /**
-     * Define environment setup.
-     *
-     * @param  \Illuminate\Foundation\Application  $app
-     * @return void
-     */
-    protected function defineEnvironment($app)
-    {
-        // Setup default database to use sqlite :memory:
-        $app['config']->set('database.default', 'testbench');
-        $app['config']->set('database.connections.testbench', [
-            'driver'   => 'sqlite',
-            'database' => ':memory:',
-            'prefix'   => '',
-        ]);
+        // Set bootstrapPath to avoid issues with the bootstrap/cache directory
+        $app->useBootstrapPath(__DIR__.'/../bootstrap');
+        
+        // Bootstrap the application
+        $app->make('Illuminate\Contracts\Console\Kernel')->bootstrap();
+        
+        // Register the service provider
+        $app->register(MCPServiceProvider::class);
 
-        // Set MCP package configuration
-        $app['config']->set('mcp.routes_enabled', true);
-        $app['config']->set('mcp.logging.enabled', false);
+        return $app;
     }
 }

@@ -2039,6 +2039,8 @@ You can now ask questions like:
 composer test
 ```
 
+Note: Feature tests are currently skipped and will be improved in future releases. Unit tests are fully functional and cover the core MCP service functionality.
+
 ## License
 
 This package is open-source software licensed under the [MIT license](LICENSE.md).
