@@ -17,9 +17,9 @@
         "laravel/framework": "^12.0"
     },
     "require-dev": {
-        "pestphp/pest": "^2.0",
-        "pestphp/pest-plugin-laravel": "^2.0",
-        "orchestra/testbench": "^8.0",
+        "pestphp/pest": "^3.0",
+        "pestphp/pest-plugin-laravel": "^3.0",
+        "orchestra/testbench": "^9.0",
         "laravel/pint": "^1.0"
     },
     "autoload": {
